@@ -3,4 +3,4 @@
 	url = https://github.com/USCiLab/cereal
 [submodule "s2client-api"]
 	path = s2client-api
-	url = https://github.com/Blizzard/s2client-api
+	url = https://github.com/RaphaelRoyerRivard/s2client-api
