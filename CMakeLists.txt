@@ -8,7 +8,7 @@ bin2h(SOURCE_FILE "${CMAKE_CURRENT_SOURCE_DIR}/libvoxelbot/generated/upgrades.bi
 bin2h(SOURCE_FILE "${CMAKE_CURRENT_SOURCE_DIR}/libvoxelbot/generated/abilities.bin" HEADER_FILE "${CMAKE_CURRENT_SOURCE_DIR}/libvoxelbot/generated/abilities_data.h" VARIABLE_NAME "LIBVOXELBOT_DATA_ABILITIES")
 
 
-add_subdirectory("cereal")
+# add_subdirectory("cereal")
 add_subdirectory("s2client-api")
 
 
@@ -89,7 +89,9 @@ target_compile_definitions(libvoxelbot PUBLIC LIBVOXELBOT_ENABLE_PYTHON=${LIBVOX
 # target_link_libraries(libvoxelbot pybind11)
 
 # Multithreaded builds
-add_compile_options($<$<CXX_COMPILER_ID:MSVC>:/MP>)
+if (MSVC)
+    add_compile_options($<$<CXX_COMPILER_ID:MSVC>:/MP>)
+endif ()
 
 target_include_directories(libvoxelbot
     PUBLIC
